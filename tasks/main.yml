@@ -1,0 +1,14 @@
+---
+# tasks file for auto_pkg_updates
+
+- name: Include RedHat OS-specific tasks.
+  include_tasks: RedHat.yml
+  when:
+    - ansible_os_family == 'RedHat'
+    - auto_pkg_updates_enabled | bool
+
+- name: Include Debian OS-specific tasks.
+  include_tasks: Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+    - auto_pkg_updates_enabled | bool

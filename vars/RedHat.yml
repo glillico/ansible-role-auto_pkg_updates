@@ -1,0 +1,4 @@
+---
+# RedHat vars file for auto_pkg_updates
+
+__auto_pkg_updates_config_path: /etc/yum/yum-cron.conf

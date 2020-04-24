@@ -1,0 +1,18 @@
+---
+# defaults file for auto_pkg_updates
+
+auto_pkg_updates_enabled: true
+
+# Settings for unattended-upgrades
+# These will only be used on Debian based servers.
+auto_pkg_updates_Blacklist: []
+auto_pkg_updates_Reboot: "false"
+auto_pkg_updates_Reboot_Time: "03:00"
+auto_pkg_updates_Mail: ""
+auto_pkg_updates_MailOnlyOnError: true
+
+# Settings for yum-cron
+# These will only be used on RedHat based ervers.
+auto_pkg_updates_update_cmd: "security"
+auto_pkg_updates_apply_updates: "yes"
+auto_pkg_updates_email_to: "root"

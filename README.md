@@ -19,6 +19,8 @@ None.
 
 Should the automatic package updates be configured.
 
+#### Settings for unattended-upgrades
+
     auto_pkg_updates_Blacklist: []
 
 Paackages to exclude from updating.
@@ -38,6 +40,8 @@ The email address to send for problems/package upgrades.
     auto_pkg_updates_MailOnlyOnError: true
 
 Only send email when an error ocurs.
+
+#### Settings for yum-cron
 
     auto_pkg_updates_update_cmd: "security"
 

@@ -1,2 +1,12 @@
 ---
 # handlers file for auto_pkg_updates
+
+- name: Restart yum-cron service
+  service:
+    name: "{{ auto_pkg_updates_service_name }}"
+    state: "restarted"
+
+- name: Restart dnf-automatic service
+  service:
+    name: "{{ auto_pkg_updates_service_name }}"
+    state: "restarted"

@@ -3,7 +3,8 @@
 This role installs and configures packages to allow the server to perform automatic package updates.
 
 - On Debian based systems this is done via the unattended-upgrades package.
-- On RedHat based systems this is done via the yum-cron package.
+- On RedHat 7 based systems this is done via the yum-cron package.
+- On RedHat 8 based systems this is done via the dnf-automatic package.
 
 This role was heavily influenced by Jeff Geerlings [Security](https://galaxy.ansible.com/geerlingguy/security) role.
 
@@ -41,7 +42,11 @@ The email address to send for problems/package upgrades.
 
 Only send email when an error ocurs.
 
-#### Settings for yum-cron
+### vars/RedHat-7.yml
+
+    __auto_pkg_updates_config_path: /etc/yum/yum-cron.conf
+
+The full path and filename of the yum-cron configuration file.
 
     auto_pkg_updates_update_cmd: "security"
 
@@ -51,15 +56,27 @@ Sets the type of update to use.
 
 Should updates be applied when they are available.
 
-    auto_pkg_updates_email_to: "root"
+    auto_pkg_updates_service_name: "yum-cron"
 
-A list of email addresses to send messages to.
+The name of the service.
 
-### RedHat.yml
+### vars/RedHat-8.yml
 
-    __auto_pkg_updates_config_path: /etc/yum/yum-cron.conf
+    __auto_pkg_updates_config_path: /etc/dnf/automatic.conf
 
-The full path and filename of the yum-cron configuration file.
+The full path and filename of the dnf-automatic configuration file.
+
+    auto_pkg_updates_upgrade_type: "security"
+
+Sets the type of update to use.
+
+    auto_pkg_updates_apply_updates: "yes"
+
+Should updates be applied when they are available.
+
+    auto_pkg_updates_service_name: "dnf-automatic.timer"
+
+The name of the service.
 
 ## Dependencies
 

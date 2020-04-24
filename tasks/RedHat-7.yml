@@ -1,0 +1,35 @@
+---
+# RedHat tasks file for auto_pkg_updates
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+
+- name: Define auto_pkg_updates_config_path.
+  set_fact:
+    auto_pkg_updates_config_path: "{{ __auto_pkg_updates_config_path }}"
+    when: auto_pkg_updates_config_path is not defined
+
+- name: Install yum-cron package.
+  package:
+    name: yum-cron
+    state: present
+    update_cache: true
+
+- name: Configure yum-cron.
+  lineinfile:
+    dest: "{{ auto_pkg_updates_config_path }}"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - regexp: "^update_cmd = .+"
+      line: "update_cmd = {{ auto_pkg_updates_update_cmd }}"
+    - regexp: "^apply_updates = .+"
+      line: "apply_updates = {{ auto_pkg_updates_apply_updates }}"
+  notify: Restart yum-cron service
+
+- name: Ensure yum-cron is running and enabled on boot.
+  service:
+    name: "{{ auto_pkg_updates_service_name }}"
+    state: started
+    enabled: true

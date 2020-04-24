@@ -1,15 +1,11 @@
 ---
 # Debian tasks file for auto_pkg_updates
 
-- name: Update apt package cache.
-  apt:
-    update_cache: true
-    cache_valid_time: 600
-
 - name: Install unattended-upgrades package.
   package:
     name: unattended-upgrades
     state: present
+    update_cache: true
 
 - name: Copy unattended-upgrades configuration files.
   template:

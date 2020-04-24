@@ -1,0 +1,10 @@
+---
+# RedHat vars file for auto_pkg_updates
+
+# Settings for dnf-automatic
+# These will only be used on RedHat 8 based ervers.
+__auto_pkg_updates_config_path: /etc/dnf/automatic.conf
+
+auto_pkg_updates_upgrade_type: "security"
+auto_pkg_updates_apply_updates: "yes"
+auto_pkg_updates_service_name: "dnf-automatic.timer"

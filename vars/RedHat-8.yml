@@ -1,5 +1,5 @@
 ---
-# RedHat vars file for auto_pkg_updates
+# RedHat 8 vars file for auto_pkg_updates
 
 # Settings for dnf-automatic
 # These will only be used on RedHat 8 based ervers.

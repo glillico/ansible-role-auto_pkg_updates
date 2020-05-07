@@ -1,5 +1,5 @@
 ---
-# RedHat vars file for auto_pkg_updates
+# RedHat 7 vars file for auto_pkg_updates
 
 # Settings for yum-cron
 # These will only be used on RedHat 7 based ervers.

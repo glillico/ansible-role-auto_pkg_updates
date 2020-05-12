@@ -96,4 +96,4 @@ MIT
 
 ## Author Information
 
-This role was created in 2020 by Graham Lillico.
+This role was created in 2020 by Graham Lillico. (Inspired by [geerlingguy/ansible-role-security](https://github.com/geerlingguy/ansible-role-security)).

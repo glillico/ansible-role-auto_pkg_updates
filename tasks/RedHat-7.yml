@@ -21,6 +21,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     state: present
+    backup: true
   with_items:
     - regexp: "^update_cmd = .+"
       line: "update_cmd = {{ auto_pkg_updates_update_cmd }}"

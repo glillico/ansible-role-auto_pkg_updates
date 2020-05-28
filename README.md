@@ -42,6 +42,18 @@ The email address to send for problems/package upgrades.
 
 Only send email when an error ocurs.
 
+    auto_pkg_updates_Update_Package_Lists: 1
+
+An "apt-get update" should be run every X days (0 = disabled).
+
+    auto_pkg_updates_Unattended_Upgrade: 1
+
+The "unattended-upgrade" process should be run every X days (0 = disabledd).
+
+    auto_pkg_updates_AutocleanInterval: 3
+
+An "apt-get autoclean" should be run every X days (0 = disabled).
+
 ### vars/RedHat-7.yml
 
     __auto_pkg_updates_config_path: /etc/yum/yum-cron.conf
@@ -77,6 +89,30 @@ Should updates be applied when they are available.
     auto_pkg_updates_service_name: "dnf-automatic.timer"
 
 The name of the service.
+
+### vars/Debian.yml
+
+    auto_pkg_updates_Origins:
+      - 'origin=${distro_id},codename=${distro_codename},label=${distro_id}'
+      - 'origin=${distro_id},codename=${distro_codename},label=${distro_id}-Security'
+    #  - 'origin=${distro_id},codename=${distro_codename}'
+    #  - 'origin=${distro_id},codename=${distro_codename}-updates'
+    #  - 'origin=${distro_id},codename=${distro_codename}-proposed-updates'
+
+Defines the origins that will be used by unattended-upgrades on Debian systems.
+
+### vars/Ubuntu.yml
+
+    auto_pkg_updates_Origins:
+      - 'origin=${distro_id},archive=${distro_codename}'
+      - 'origin=${distro_id},archive=${distro_codename}-security'
+      - 'origin=${distro_id}ESMApps,archive=${distro_codename}-apps-security'
+      - 'origin=${distro_id}ESM,archive=${distro_codename}-infra-security'
+    #  - 'origin=${distro_id},archive=${distro_codename}-updates'
+    #  - 'origin=${distro_id},archive=${distro_codename}-proposed'
+    #  - 'origin=${distro_id},archive=${distro_codename}-backports'
+
+Defines the origins that will be used by unattended-upgrades on Ubuntu systems.
 
 ## Dependencies
 

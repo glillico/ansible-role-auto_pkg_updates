@@ -5,8 +5,13 @@ auto_pkg_updates_enabled: true
 
 # Settings for unattended-upgrades
 # These will only be used on Debian based servers.
+
 auto_pkg_updates_Blacklist: []
 auto_pkg_updates_Reboot: "false"
 auto_pkg_updates_Reboot_Time: "03:00"
 auto_pkg_updates_Mail: ""
 auto_pkg_updates_MailOnlyOnError: true
+
+auto_pkg_updates_Update_Package_Lists: 1
+auto_pkg_updates_Unattended_Upgrade: 1
+auto_pkg_updates_AutocleanInterval: 3

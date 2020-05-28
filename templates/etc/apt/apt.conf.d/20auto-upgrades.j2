@@ -1,0 +1,8 @@
+// Do "apt-get update" automatically every n-days (0=disable)
+APT::Periodic::Update-Package-Lists "{{ auto_pkg_updates_Update_Package_Lists }}";
+
+// Run the "unattended-upgrade" security upgrade script every n-days (0=disabled)
+APT::Periodic::Unattended-Upgrade "{{ auto_pkg_updates_Unattended_Upgrade }}";
+
+// Do "apt-get autoclean" every n-days (0=disable)
+APT::Periodic::AutocleanInterval "{{ auto_pkg_updates_AutocleanInterval }}";

@@ -21,6 +21,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     state: present
+    backup: true
   with_items:
     - regexp: "^upgrade_type = .+"
       line: "upgrade_type = {{ auto_pkg_updates_upgrade_type }}"

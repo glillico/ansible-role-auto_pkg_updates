@@ -1,0 +1,11 @@
+---
+# Ubuntu vars file for auto_pkg_updates
+
+auto_pkg_updates_Origins:
+  - 'origin=${distro_id},archive=${distro_codename}'
+  - 'origin=${distro_id},archive=${distro_codename}-security'
+  - 'origin=${distro_id}ESMApps,archive=${distro_codename}-apps-security'
+  - 'origin=${distro_id}ESM,archive=${distro_codename}-infra-security'
+#  - 'origin=${distro_id},archive=${distro_codename}-updates'
+#  - 'origin=${distro_id},archive=${distro_codename}-proposed'
+#  - 'origin=${distro_id},archive=${distro_codename}-backports'

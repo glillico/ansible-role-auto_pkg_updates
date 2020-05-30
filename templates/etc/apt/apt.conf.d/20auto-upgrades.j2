@@ -1,3 +1,5 @@
+{{ ansible_managed | comment('c') }}
+
 // Do "apt-get update" automatically every n-days (0=disable)
 APT::Periodic::Update-Package-Lists "{{ auto_pkg_updates_Update_Package_Lists }}";
 

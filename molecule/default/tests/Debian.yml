@@ -1,0 +1,22 @@
+---
+# Debian verify file for auto_pkg_updates
+
+- name: Does the file /etc/apt/apt.conf.d/20auto-upgrades exist.
+  stat:
+    path: /etc/apt/apt.conf.d/20auto-upgrades
+  register: filestat1
+
+- name: The file /etc/apt/apt.conf.d/20auto-upgrades does not exist.
+  fail:
+    msg: "The file /etc/apt/apt.conf.d/20auto-upgrades does not exist."
+  when: filestat1.stat.isreg is not defined
+
+- name: Does the file /etc/apt/apt.conf.d/50unattended-upgrades exist.
+  stat:
+    path: /etc/apt/apt.conf.d/50unattended-upgrades
+  register: filestat2
+
+- name: The file /etc/apt/apt.conf.d/50unattended-upgrades does not exist.
+  fail:
+    msg: "The file /etc/apt/apt.conf.d/50unattended-upgrades does not exist."
+  when: filestat2.stat.isreg is not defined

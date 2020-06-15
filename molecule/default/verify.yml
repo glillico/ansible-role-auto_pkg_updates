@@ -3,7 +3,13 @@
 
 - name: Verify
   hosts: all
+
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+
+    - name: Include OS-specific tasks.
+      include_tasks: "{{ item }}"
+      with_first_found:
+        - 'tests/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
+        - 'tests/{{ ansible_distribution }}.yml'
+        - 'tests/{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml'
+        - 'tests/{{ ansible_os_family }}.yml'

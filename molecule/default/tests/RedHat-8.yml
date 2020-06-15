@@ -1,0 +1,12 @@
+---
+# RedHat 8 verify file for auto_pkg_updates
+
+- name: Does the file /etc/dnf/automatic.conf exist.
+  stat:
+    path: /etc/dnf/automatic.conf
+  register: filestat4
+
+- name: The file /etc/dnf/automatic.conf does not exist.
+  fail:
+    msg: "The file /etc/dnf/automatic.conf does not exist."
+  when: filestat4.stat.isreg is not defined

@@ -1,0 +1,12 @@
+---
+# RedHat 7 verify file for auto_pkg_updates
+
+- name: Does the file /etc/yum/yum-cron.conf exist.
+  stat:
+    path: /etc/yum/yum-cron.conf
+  register: filestat3
+
+- name: The file /etc/yum/yum-cron.conf does not exist.
+  fail:
+    msg: "The file /etc/yum/yum-cron.conf does not exist."
+  when: filestat3.stat.isreg is not defined

@@ -6,8 +6,14 @@ driver:
   provider:
     name: virtualbox
 platforms:
-  - name: instance
+  - name: centos7
+    box: geerlingguy/centos7
+  - name: centos8
+    box: geerlingguy/centos8
+  - name: debian9
     box: geerlingguy/debian9
+  - name: debian10
+    box: geerlingguy/debian10
 provisioner:
   name: ansible
 verifier:

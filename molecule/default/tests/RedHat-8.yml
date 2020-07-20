@@ -1,12 +1,26 @@
 ---
 # RedHat 8 verify file for auto_pkg_updates
 
-- name: Does the file /etc/dnf/automatic.conf exist.
+- name: Check the dnf-automatic package status.
+  package:
+    name: dnf-automatic
+    state: present
+  check_mode: yes
+  register: pkg_status
+
+- name: Test that the dnf-automatic package is installed.
+  assert:
+    that:
+      - not pkg_status.changed
+
+- name: Retrieve the file information for '/etc/dnf/automatic.conf'.
   stat:
     path: /etc/dnf/automatic.conf
-  register: filestat4
+  register: remote_file
 
-- name: The file /etc/dnf/automatic.conf does not exist.
-  fail:
-    msg: "The file /etc/dnf/automatic.conf does not exist."
-  when: filestat4.stat.isreg is not defined
+- name: Test that the '/etc/dnf/automatic.conf' file was created correctly.
+  assert:
+    that:
+      - remote_file.stat.exists
+      - remote_file.stat.isreg
+      - remote_file.stat.path == '/etc/dnf/automatic.conf'

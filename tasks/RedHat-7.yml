@@ -1,9 +1,6 @@
 ---
 # RedHat 7 tasks file for auto_pkg_updates
 
-#- name: Include OS-specific variables.
-#  include_vars: "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
-
 - name: Define auto_pkg_updates_config_path.
   set_fact:
     auto_pkg_updates_config_path: "{{ __auto_pkg_updates_config_path }}"

@@ -1,0 +1,15 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+
+  tasks:
+
+    - name: Include OS-specific tasks.
+      include_tasks: "{{ item }}"
+      with_first_found:
+        - 'tests/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
+        - 'tests/{{ ansible_distribution }}.yml'
+        - 'tests/{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml'
+        - 'tests/{{ ansible_os_family }}.yml'

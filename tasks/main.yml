@@ -12,8 +12,10 @@
 - name: Include OS-specific tasks.
   include_tasks: "{{ var_item }}"
   with_first_found:
-    - "{{ ansible_os_family }}.yml"
-    - "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+    - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
+    - '{{ ansible_distribution }}.yml'
+    - '{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml'
+    - '{{ ansible_os_family }}.yml'
   when:
     - auto_pkg_updates_enabled | bool
   loop_control:

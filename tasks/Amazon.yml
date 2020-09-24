@@ -1,5 +1,5 @@
 ---
-# RedHat 7 tasks file for auto_pkg_updates
+# Amazon tasks file for auto_pkg_updates
 
 - name: Define auto_pkg_updates_config_path.
   set_fact:

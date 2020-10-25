@@ -1,6 +1,6 @@
 # Ansible Role : auto_pkg_updates
 
-[![Ansible Molecule](https://github.com/glillico/ansible-role-auto_pkg_updates/workflows/Ansible%20Molecule/badge.svg)](https://github.com/glillico/ansible-role-auto_pkg_updates/actions?query=workflow%3AAnsible%20Molecule)
+[![molecule](https://github.com/glillico/ansible-role-auto_pkg_updates/workflows/molecule/badge.svg)](https://github.com/glillico/ansible-role-auto_pkg_updates/actions?query=workflow%3Amolecule)
 
 This role installs and configures packages to allow the server to perform automatic package updates.
 

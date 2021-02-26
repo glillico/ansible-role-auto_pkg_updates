@@ -1,5 +1,6 @@
 galaxy_info:
-  author: Graham Lillico
+  role_name: auto_pkg_updates
+  author: glillico
   description: Install and configure automatic updates.
   license: license (MIT)
   min_ansible_version: 2.4

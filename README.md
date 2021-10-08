@@ -24,35 +24,35 @@ Should the automatic package updates be configured.
 
 #### Settings for unattended-upgrades
 
-    auto_pkg_updates_Blacklist: []
+    auto_pkg_updates_blacklist: []
 
 Paackages to exclude from updating.
 
-    auto_pkg_updates_Reboot: "false"
+    auto_pkg_updates_reboot: "false"
 
 Should the server reboot without confirmation.
 
-    auto_pkg_updates_Reboot_Time: "03:00"
+    auto_pkg_updates_reboot_time: "03:00"
 
 If automatice reboot is enabled then reboot at a specific time.
 
-    auto_pkg_updates_Mail: ""
+    auto_pkg_updates_mail: ""
 
 The email address to send for problems/package upgrades.
 
-    auto_pkg_updates_MailOnlyOnError: true
+    auto_pkg_updates_mailonlyonerror: true
 
 Only send email when an error ocurs.
 
-    auto_pkg_updates_Update_Package_Lists: 1
+    auto_pkg_updates_update_package_lists: 1
 
 An "apt-get update" should be run every X days (0 = disabled).
 
-    auto_pkg_updates_Unattended_Upgrade: 1
+    auto_pkg_updates_unattended_upgrade: 1
 
 The "unattended-upgrade" process should be run every X days (0 = disabledd).
 
-    auto_pkg_updates_AutocleanInterval: 3
+    auto_pkg_updates_autocleaninterval: 3
 
 An "apt-get autoclean" should be run every X days (0 = disabled).
 
@@ -94,7 +94,7 @@ The name of the service.
 
 ### vars/Debian.yml
 
-    auto_pkg_updates_Origins:
+    auto_pkg_updates_origins:
       - 'origin=${distro_id},codename=${distro_codename},label=${distro_id}'
       - 'origin=${distro_id},codename=${distro_codename},label=${distro_id}-Security'
     #  - 'origin=${distro_id},codename=${distro_codename}'
@@ -105,7 +105,7 @@ Defines the origins that will be used by unattended-upgrades on Debian systems.
 
 ### vars/Ubuntu.yml
 
-    auto_pkg_updates_Origins:
+    auto_pkg_updates_origins:
       - 'origin=${distro_id},archive=${distro_codename}'
       - 'origin=${distro_id},archive=${distro_codename}-security'
       - 'origin=${distro_id}ESMApps,archive=${distro_codename}-apps-security'

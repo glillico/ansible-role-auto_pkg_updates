@@ -1,7 +1,7 @@
 ---
 # Debian vars file for auto_pkg_updates
 
-auto_pkg_updates_Origins:
+auto_pkg_updates_origins:
   - 'origin=${distro_id},codename=${distro_codename},label=${distro_id}'
   - 'origin=${distro_id},codename=${distro_codename},label=${distro_id}-Security'
 #  - 'origin=${distro_id},codename=${distro_codename}'

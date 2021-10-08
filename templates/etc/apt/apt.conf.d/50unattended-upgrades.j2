@@ -1,23 +1,23 @@
 {{ ansible_managed | comment('c') }}
 
-Unattended-Upgrade::Automatic-Reboot "{{ auto_pkg_updates_Reboot }}";
-Unattended-Upgrade::Automatic-Reboot-Time "{{ auto_pkg_updates_Reboot_Time }}";
+Unattended-Upgrade::Automatic-Reboot "{{ auto_pkg_updates_reboot }}";
+Unattended-Upgrade::Automatic-Reboot-Time "{{ auto_pkg_updates_reboot_time }}";
 
-{% if auto_pkg_updates_Mail %}
-Unattended-Upgrade::Mail "{{ auto_pkg_updates_Mail }}";
-{% if auto_pkg_updates_MailOnlyOnError %}
-Unattended-Upgrade::MailOnlyOnError "{{ auto_pkg_updates_MailOnlyOnError }}";
+{% if auto_pkg_updates_mail %}
+Unattended-Upgrade::Mail "{{ auto_pkg_updates_mail }}";
+{% if auto_pkg_updates_mailonlyonerror %}
+Unattended-Upgrade::MailOnlyOnError "{{ auto_pkg_updates_mailonlyonerror }}";
 {% endif %}
 {% endif %}
 
 Unattended-Upgrade::Origins-Pattern {
-{% for origin in auto_pkg_updates_Origins %}
+{% for origin in auto_pkg_updates_origins %}
   "{{ origin }}";
 {% endfor %}
 };
 
 Unattended-Upgrade::Package-Blacklist{
-{% for package in auto_pkg_updates_Blacklist %}
+{% for package in auto_pkg_updates_blacklist %}
   "{{ package }}";
 {% endfor %}
 }

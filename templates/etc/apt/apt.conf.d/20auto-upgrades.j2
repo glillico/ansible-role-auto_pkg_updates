@@ -1,10 +1,10 @@
 {{ ansible_managed | comment('c') }}
 
 // Do "apt-get update" automatically every n-days (0=disable)
-APT::Periodic::Update-Package-Lists "{{ auto_pkg_updates_Update_Package_Lists }}";
+APT::Periodic::Update-Package-Lists "{{ auto_pkg_updates_update_package_lists }}";
 
 // Run the "unattended-upgrade" security upgrade script every n-days (0=disabled)
-APT::Periodic::Unattended-Upgrade "{{ auto_pkg_updates_Unattended_Upgrade }}";
+APT::Periodic::Unattended-Upgrade "{{ auto_pkg_updates_unattended_upgrade }}";
 
 // Do "apt-get autoclean" every n-days (0=disable)
-APT::Periodic::AutocleanInterval "{{ auto_pkg_updates_AutocleanInterval }}";
+APT::Periodic::AutocleanInterval "{{ auto_pkg_updates_autocleaninterval }}";

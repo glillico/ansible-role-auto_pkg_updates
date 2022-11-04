@@ -4,10 +4,10 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      # - main
       - master
-  schedule:
-    - cron: '5 2 * * 6'
+  # schedule:
+  #   - cron: '5 2 * * 6'
 
 defaults:
   run:

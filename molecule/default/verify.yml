@@ -9,7 +9,7 @@
     - name: Include OS-specific tasks.
       include_tasks: "{{ item }}"
       with_first_found:
-        - 'tests/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
-        - 'tests/{{ ansible_distribution }}.yml'
-        - 'tests/{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml'
-        - 'tests/{{ ansible_os_family }}.yml'
+        - "tests/{{ ansible_facts['distribution'] }}-{{ ansible_facts['distribution_major_version'] }}.yml"
+        - "tests/{{ ansible_facts['distribution'] }}.yml"
+        - "tests/{{ ansible_facts['os_family'] }}-{{ ansible_facts['distribution_major_version'] }}.yml"
+        - "tests/{{ ansible_facts['os_family'] }}.yml"
